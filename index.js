@@ -1,1 +1,8 @@
-const { initializeApp, cert } = require('firebase-admin/app'); const serviceAccount = require('./serviceaccountkey.json'); initializeApp({ credential: cert(serviceAccount), databaseURL: "https://raj-talk-default-rtdb.asia-southeast1.firebasedatabase.app" })
+const { initializeApp, cert } = require('firebase-admin/app');
+
+const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT_KEY);
+
+initializeApp({
+  credential: cert(serviceAccount),
+  databaseURL: "https://raj-talk-default-rtdb.asia-southeast1.firebasedatabase.app"
+});
